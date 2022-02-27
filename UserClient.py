@@ -1,18 +1,3 @@
-# StudentID:	p2136798
-# Name:	        Gan Hanyong
-# Class:		DISM/FT/1B/02   
-# Assessment:	CA2
-# 
-# Script name:	UserClient.py
-# 
-# Purpose:  	Creation, editing, and deletion of users, questions, and quiz settings. To generate results report too.
-#
-# Usage syntax:	F5
-# 
-# References: https://www.geeksforgeeks.org/python-different-ways-to-kill-a-thread/
-#
-# Python ver:	Python 3.9.7
-
 import socket
 import time
 import threading
