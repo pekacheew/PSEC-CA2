@@ -1,34 +1,7 @@
-# StudentID:	p2136798
-# Name:	        Gan Hanyong
-# Class:		DISM/FT/1B/02   
-# Assessment:	CA2
-# 
-# Script name:	rwaFiles.py
-# 
-# Purpose:  	Reusable read, write, append Functions
-#
-# Usage syntax:	F5
-# 
-# Input file:	Specify full path, 'D:\SP School\Y1 SEM2\PSEC\1B02-GanHanyong\csv\userid_pswd.csv'
-#                                  'D:\SP School\Y1 SEM2\PSEC\1B02-GanHanyong\csv\quiz_settings.csv'
-#                                  'D:\SP School\Y1 SEM2\PSEC\1B02-GanHanyong\csv\question_pool.csv'
-#                                  'D:\SP School\Y1 SEM2\PSEC\1B02-GanHanyong\csv\quiz_results.csv'
-#                                  'D:\SP School\Y1 SEM2\PSEC\1B02-GanHanyong\csv\quizes.csv'
-#                                  'D:\SP School\Y1 SEM2\PSEC\1B02-GanHanyong\csv\quiz_topics.csv'
-#
-# Output file:	Specify full path, 'D:\SP School\Y1 SEM2\PSEC\1B02-GanHanyong\csv\userid_pswd.csv'
-#                                  'D:\SP School\Y1 SEM2\PSEC\1B02-GanHanyong\csv\quiz_settings.csv'
-#                                  'D:\SP School\Y1 SEM2\PSEC\1B02-GanHanyong\csv\question_pool.csv'
-#                                  'D:\SP School\Y1 SEM2\PSEC\1B02-GanHanyong\csv\quiz_results.csv'
-#                                  'D:\SP School\Y1 SEM2\PSEC\1B02-GanHanyong\csv\quizes.csv'
-#                                  'D:\SP School\Y1 SEM2\PSEC\1B02-GanHanyong\csv\quiz_topics.csv'
-# 
-# Python ver:	Python 3.9.7
-
 ########################## userid_pswd.csv #######################
 # Remove spacing in list function
 def rmvSpaceID():
-    with open('./1B02-GanHanyong/csv/userid_pswd.csv','r+') as csvFile:
+    with open('./csv/userid_pswd.csv','r+') as csvFile:
         csvFileR = csvFile.readlines()
         for i in csvFileR:
             if i == '\n':
@@ -41,7 +14,7 @@ def rmvSpaceID():
 
 # Check if User already Exist 
 def regUsrIDone(userID):
-    with open('./1B02-GanHanyong/csv/userid_pswd.csv','r+') as csvFile:
+    with open('./csv/userid_pswd.csv','r+') as csvFile:
             csvFileR = csvFile.readlines()
             for i in csvFileR:
                 exUserID = i.split(sep=',')
@@ -56,7 +29,7 @@ def regUsrIDone(userID):
 
 # Check if User Exist 
 def regUsrIDtwo(userID,aOrU):
-    with open('./1B02-GanHanyong/csv/userid_pswd.csv','r+') as csvFile:
+    with open('./csv/userid_pswd.csv','r+') as csvFile:
             csvFileR = csvFile.readlines()
             for i in csvFileR:
                 exUserID = i.split(sep=',')
@@ -73,7 +46,7 @@ def regUsrIDtwo(userID,aOrU):
                 
 # check if user is admin or user account
 def adminORuser(userID):
-    with open('./1B02-GanHanyong/csv/userid_pswd.csv','r+') as csvFile:
+    with open('./csv/userid_pswd.csv','r+') as csvFile:
             csvFileR = csvFile.readlines()
             for i in csvFileR:
                 exUserID = i.split(sep=',')
@@ -92,11 +65,11 @@ def adminORuser(userID):
 
 # write New User into userid_pswd.csv
 def newUsr(writeIntoFile):
-    with open('./1B02-GanHanyong/csv/userid_pswd.csv','r+') as csvFile:
+    with open('./csv/userid_pswd.csv','r+') as csvFile:
         csvFileR = csvFile.readlines()
 
         csvFileR.append(f'\n{writeIntoFile}')
-    with open('./1B02-GanHanyong/csv/userid_pswd.csv','w') as csvFile:
+    with open('./csv/userid_pswd.csv','w') as csvFile:
         for n in csvFileR:
             csvFile.write(n)
 
@@ -104,7 +77,7 @@ def newUsr(writeIntoFile):
 
 # check if password is correct
 def usrPswd(userID,userPswd):
-    with open('./1B02-GanHanyong/csv/userid_pswd.csv','r+') as csvFile:
+    with open('./csv/userid_pswd.csv','r+') as csvFile:
             csvFileR = csvFile.readlines()
             
             for i in csvFileR:
@@ -124,7 +97,7 @@ def usrPswd(userID,userPswd):
 
 # update new password of existing user
 def editPswd(userID,newuserPswd):
-    with open('./1B02-GanHanyong/csv/userid_pswd.csv','r+') as csvFile:
+    with open('./csv/userid_pswd.csv','r+') as csvFile:
         csvFileR = csvFile.readlines()
 
         for i in range(len(csvFileR)):
@@ -134,7 +107,7 @@ def editPswd(userID,newuserPswd):
                 toAppend = userID + ',' + newuserPswd + ',' + attempts[2] +',' + attempts[3] +',' +attempts[4] +',' + attempts[5]+'\n'
                 csvFileR[i] = toAppend
                 
-    with open('./1B02-GanHanyong/csv/userid_pswd.csv', 'w') as csvFile:
+    with open('./csv/userid_pswd.csv', 'w') as csvFile:
         for n in csvFileR:
             
             csvFile.write(n)
@@ -144,7 +117,7 @@ def editPswd(userID,newuserPswd):
 
 # remove User
 def removeUsr(userID):
-    with open('./1B02-GanHanyong/csv/userid_pswd.csv','r+') as csvFile:    
+    with open('./csv/userid_pswd.csv','r+') as csvFile:    
         csvFileR = csvFile.readlines()
     
         for i in csvFileR:
@@ -152,7 +125,7 @@ def removeUsr(userID):
             if userID == userIDsplit[0]:
                 csvFileR.remove(i)
         csvFile.close()
-    with open('./1B02-GanHanyong/csv/userid_pswd.csv', 'w') as csvFile:
+    with open('./csv/userid_pswd.csv', 'w') as csvFile:
         for n in csvFileR:
             csvFile.write(n)
 
@@ -160,7 +133,7 @@ def removeUsr(userID):
 
 # retrieve user list
 def usrList():
-    with open('./1B02-GanHanyong/csv/userid_pswd.csv','r+') as csvFile:    
+    with open('./csv/userid_pswd.csv','r+') as csvFile:    
         csvFileR = csvFile.readlines()
         r = 0
 
@@ -173,7 +146,7 @@ def usrList():
 
 # check attempts
 def usrAttempts(userID):
-    with open('./1B02-GanHanyong/csv/userid_pswd.csv','r+') as csvFile:
+    with open('./csv/userid_pswd.csv','r+') as csvFile:
         csvFileR = csvFile.readlines()
         
         for i in csvFileR:
@@ -198,7 +171,7 @@ def usrAttempts(userID):
 
 # update attempt count
 def attemptCount(userID):
-    with open('./1B02-GanHanyong/csv/userid_pswd.csv','r+') as csvFile:
+    with open('./csv/userid_pswd.csv','r+') as csvFile:
         csvFileR = csvFile.readlines()
 
         
@@ -213,7 +186,7 @@ def attemptCount(userID):
                     toAppend = attempts[0] + ',' + attempts[1] + ',' + attempts[2] +',' + str(newAttempt)+',' + attempts[4] + ',' + attempts[5] 
                     csvFileR[i] = toAppend
                 
-    with open('./1B02-GanHanyong/csv/userid_pswd.csv', 'w') as csvFile:
+    with open('./csv/userid_pswd.csv', 'w') as csvFile:
         for n in csvFileR:
             
             csvFile.write(n)
@@ -222,7 +195,7 @@ def attemptCount(userID):
 
 # Reset all Attempts
 def resetAttempt():
-    with open('./1B02-GanHanyong/csv/userid_pswd.csv', 'r+') as csvFile:
+    with open('./csv/userid_pswd.csv', 'r+') as csvFile:
         csvFileR = csvFile.readlines()
 
         for i in range(len(csvFileR)):
@@ -232,7 +205,7 @@ def resetAttempt():
                 toAppend = userIdSplit[0] + ',' + userIdSplit[1] + ',' + userIdSplit[2] +',' + str(qzSettings(3)) +',' +userIdSplit[4] +',' +userIdSplit[5]
                 csvFileR[i] = toAppend
 
-    with open('./1B02-GanHanyong/csv/userid_pswd.csv', 'w') as csvFile:
+    with open('./csv/userid_pswd.csv', 'w') as csvFile:
         for n in csvFileR:
             csvFile.write(n)
         csvFile.close()
@@ -240,7 +213,7 @@ def resetAttempt():
 
 # Plus 1 Attempt to all users
 def plusAttempt():
-    with open('./1B02-GanHanyong/csv/userid_pswd.csv', 'r+') as csvFile:
+    with open('./csv/userid_pswd.csv', 'r+') as csvFile:
         csvFileR = csvFile.readlines()
 
         for i in range(len(csvFileR)):
@@ -248,14 +221,14 @@ def plusAttempt():
             if adminORuser(userIdSplit[0]) == True:
                 toAppend = userIdSplit[0] + ',' + userIdSplit[1] + ',' + userIdSplit[2] +',' + str(int(userIdSplit[3])+int(1)) + ',' +userIdSplit[4] +',' +userIdSplit[5]
                 csvFileR[i] = toAppend
-    with open('./1B02-GanHanyong/csv/userid_pswd.csv', 'w') as csvFile:
+    with open('./csv/userid_pswd.csv', 'w') as csvFile:
             for n in csvFileR:
                 csvFile.write(n)
             csvFile.close()
 
 # Minus 1 Attempt to all user
 def minusAttempt():
-    with open('./1B02-GanHanyong/csv/userid_pswd.csv', 'r+') as csvFile:
+    with open('./csv/userid_pswd.csv', 'r+') as csvFile:
         csvFileR = csvFile.readlines()
 
         for i in range(len(csvFileR)):
@@ -263,14 +236,14 @@ def minusAttempt():
             if adminORuser(userIdSplit[0]) == True:
                 toAppend = userIdSplit[0] + ',' + userIdSplit[1] + ',' + userIdSplit[2] +',' + str(int(userIdSplit[3])-int(1)) +',' +userIdSplit[4] +',' +userIdSplit[5]
                 csvFileR[i] = toAppend
-    with open('./1B02-GanHanyong/csv/userid_pswd.csv', 'w') as csvFile:
+    with open('./csv/userid_pswd.csv', 'w') as csvFile:
             for n in csvFileR:
                 csvFile.write(n)
             csvFile.close()
 
 # Set to unlimited attempts
 def unlimitedAttempt():
-    with open('./1B02-GanHanyong/csv/userid_pswd.csv', 'r+') as csvFile:
+    with open('./csv/userid_pswd.csv', 'r+') as csvFile:
         csvFileR = csvFile.readlines()
 
         for i in range(len(csvFileR)):
@@ -278,14 +251,14 @@ def unlimitedAttempt():
             if adminORuser(userIdSplit[0]) == True:
                 toAppend = userIdSplit[0] + ',' + userIdSplit[1] + ',' + userIdSplit[2] +',' + str(999) +',' +userIdSplit[4] +',' +userIdSplit[5]
                 csvFileR[i] = toAppend
-    with open('./1B02-GanHanyong/csv/userid_pswd.csv', 'w') as csvFile:
+    with open('./csv/userid_pswd.csv', 'w') as csvFile:
             for n in csvFileR:
                 csvFile.write(n)
             csvFile.close()
 
 # Check User Input against Secret Answer
 def secretA(userID,secretAns):
-    with open('./1B02-GanHanyong/csv/userid_pswd.csv','r+') as csvFile:
+    with open('./csv/userid_pswd.csv','r+') as csvFile:
                 csvFileR = csvFile.readlines()
                 for i in csvFileR:
                     attempts = i.split(sep=',')
@@ -304,7 +277,7 @@ def secretA(userID,secretAns):
 
 # retrieve user's secret question
 def secretQ(userID):
-    with open('./1B02-GanHanyong/csv/userid_pswd.csv','r+') as csvFile:    
+    with open('./csv/userid_pswd.csv','r+') as csvFile:    
         csvFileR = csvFile.readlines()
 
         for i in csvFileR:
@@ -316,7 +289,7 @@ def secretQ(userID):
 
 # retrieve user's secret question's Answer
 def secretAns(userID):
-    with open('./1B02-GanHanyong/csv/userid_pswd.csv','r+') as csvFile:    
+    with open('./csv/userid_pswd.csv','r+') as csvFile:    
         csvFileR = csvFile.readlines()
 
         for i in csvFileR:
@@ -328,7 +301,7 @@ def secretAns(userID):
 ########################## quiz_settings.csv #######################
 # quiz timer
 def quizTimer(newTime,selection):
-    with open('./1B02-GanHanyong/csv/quiz_settings.csv','r+') as csvFile:
+    with open('./csv/quiz_settings.csv','r+') as csvFile:
             csvFileR = csvFile.readlines()
 
             for i in range(len(csvFileR)):
@@ -337,7 +310,7 @@ def quizTimer(newTime,selection):
                     toAppend = str(selection) + ', ' + str(newTime) + '\n'
                     csvFileR[i] = toAppend
                 
-    with open('./1B02-GanHanyong/csv/quiz_settings.csv', 'w') as csvFile:
+    with open('./csv/quiz_settings.csv', 'w') as csvFile:
         for n in csvFileR:
             
             csvFile.write(n)
@@ -346,7 +319,7 @@ def quizTimer(newTime,selection):
 
 # get quiz settings data
 def qzSettings(input):
-    with open('./1B02-GanHanyong/csv/quiz_settings.csv','r+') as csvFile:
+    with open('./csv/quiz_settings.csv','r+') as csvFile:
         qzSettingsVessel = []                      
         csvFileR = csvFile.readlines()
         for i in csvFileR:
@@ -366,7 +339,7 @@ def qzSettings(input):
 ########################## question_pool.csv #######################
 # remove space in question_pool
 def rmvSpaceQn():
-    with open('./1B02-GanHanyong/csv/question_pool.csv','r+') as csvFile:
+    with open('./csv/question_pool.csv','r+') as csvFile:
         csvFileR = csvFile.readlines()
         for i in csvFileR:
             if i == '\n':
@@ -379,7 +352,7 @@ def rmvSpaceQn():
 
 # check if question already exists
 def regQnone(qn):
-    with open('./1B02-GanHanyong/csv/question_pool.csv','r+') as csvFile:
+    with open('./csv/question_pool.csv','r+') as csvFile:
             csvFileR = csvFile.readlines()
             for i in csvFileR:
                 qnPool = i.split(sep=',')
@@ -394,7 +367,7 @@ def regQnone(qn):
 
 # check if question exists to be edited.
 def regQntwo(qnToDel):
-    with open('./1B02-GanHanyong/csv/question_pool.csv','r+') as csvFile:
+    with open('./csv/question_pool.csv','r+') as csvFile:
             csvFileR = csvFile.readlines()
             for i in csvFileR:
                 qnPool = i.split(sep=',')
@@ -410,11 +383,11 @@ def regQntwo(qnToDel):
 
 # add new line of question in
 def addQuestion(newQuestion):
-    with open('./1B02-GanHanyong/csv/question_pool.csv','r+') as csvFile:
+    with open('./csv/question_pool.csv','r+') as csvFile:
         csvFileR = csvFile.readlines()
 
         csvFileR.append(f'\n{newQuestion}')
-    with open('./1B02-GanHanyong/csv/question_pool.csv','w') as csvFile:
+    with open('./csv/question_pool.csv','w') as csvFile:
         for n in csvFileR:
             csvFile.write(n)
 
@@ -423,7 +396,7 @@ def addQuestion(newQuestion):
             
 # remove question
 def removeQn(qnDel):
-    with open('./1B02-GanHanyong/csv/question_pool.csv','r+') as csvFile:    
+    with open('./csv/question_pool.csv','r+') as csvFile:    
         csvFileR = csvFile.readlines()
     
         for i in csvFileR:
@@ -431,7 +404,7 @@ def removeQn(qnDel):
             if qnDel == qnSplit[0]:
                 csvFileR.remove(i)
         csvFile.close()
-    with open('./1B02-GanHanyong/csv/question_pool.csv', 'w') as csvFile:
+    with open('./csv/question_pool.csv', 'w') as csvFile:
         for n in csvFileR:
             csvFile.write(n)
 
@@ -439,7 +412,7 @@ def removeQn(qnDel):
 
 # retrieve Question list
 def qnList():
-    with open('./1B02-GanHanyong/csv/question_pool.csv','r+') as csvFile:    
+    with open('./csv/question_pool.csv','r+') as csvFile:    
         csvFileR = csvFile.readlines()
         r = 0
 
@@ -457,7 +430,7 @@ def qnList():
 
 # edit question into question_pool.csv
 def editQn(qn,newChg,index):
-    with open('./1B02-GanHanyong/csv/question_pool.csv','r+') as csvFile:
+    with open('./csv/question_pool.csv','r+') as csvFile:
         csvFileR = csvFile.readlines()
         rmvSpaceQn()
         for i in range(len(csvFileR)):
@@ -485,14 +458,14 @@ def editQn(qn,newChg,index):
 
         rmvSpaceQn()
 
-    with open('./1B02-GanHanyong/csv/question_pool.csv', 'w') as csvFile:
+    with open('./csv/question_pool.csv', 'w') as csvFile:
         for n in csvFileR:
             csvFile.write(n)
         csvFile.close()
 
 def retrieveQuestions(topic):
     questionList = ''
-    with open('./1B02-GanHanyong/csv/question_pool.csv', 'r+') as csvFile:
+    with open('./csv/question_pool.csv', 'r+') as csvFile:
         csvFileR = csvFile.readlines()
 
         for i in csvFileR:
@@ -506,14 +479,14 @@ def retrieveQuestions(topic):
         return questionList
 
 def editQuesPoolTopics(moduleToEdit,nameToChg):
-    with open('./1B02-GanHanyong/csv/question_pool.csv', 'r+') as csvFile:
+    with open('./csv/question_pool.csv', 'r+') as csvFile:
         csvFileR = csvFile.readlines()
         for i in range(len(csvFileR)):
             iSplit = csvFileR[i].split(sep=',')
             topicName = iSplit[6].strip('\n')
             if topicName == moduleToEdit:
                 csvFileR[i] = f'{iSplit[0]},{iSplit[1]},{iSplit[2]},{iSplit[3]},{iSplit[4]},{iSplit[5]},{nameToChg}\n'
-    with open('./1B02-GanHanyong/csv/question_pool.csv', 'w') as csvFile:
+    with open('./csv/question_pool.csv', 'w') as csvFile:
         for n in csvFileR:
             csvFile.write(n)
         csvFile.close()
@@ -522,11 +495,11 @@ def editQuesPoolTopics(moduleToEdit,nameToChg):
 ########################## quiz_results.csv #######################
 # write into quiz results
 def wResults(resultToWrite):
-    with open('./1B02-GanHanyong/csv/quiz_results.csv','r+') as csvFile:
+    with open('./csv/quiz_results.csv','r+') as csvFile:
         csvFileR = csvFile.readlines()
 
         csvFileR.append(f'\n{resultToWrite}')
-    with open('./1B02-GanHanyong/csv/quiz_results.csv','w') as csvFile:
+    with open('./csv/quiz_results.csv','w') as csvFile:
         for n in csvFileR:
             csvFile.write(n)
 
@@ -534,7 +507,7 @@ def wResults(resultToWrite):
 
 # remove space for quiz_results.csv
 def rmvSpaceR():
-    with open('./1B02-GanHanyong/csv/quiz_results.csv','r+') as csvFile:
+    with open('./csv/quiz_results.csv','r+') as csvFile:
         csvFileR = csvFile.readlines()
         for i in csvFileR:
             if i == '\n':
@@ -547,7 +520,7 @@ def rmvSpaceR():
 
 # retrieve entire quiz results
 def resultList():
-    with open('./1B02-GanHanyong/csv/quiz_results.csv','r+') as csvFile:    
+    with open('./csv/quiz_results.csv','r+') as csvFile:    
         csvFileR = csvFile.readlines()
         r = 0
 
@@ -561,7 +534,7 @@ def resultList():
 
 # retrieve results for specific quiz
 def quizResults(quizName):
-    with open('./1B02-GanHanyong/csv/quiz_results.csv','r+') as csvFile:    
+    with open('./csv/quiz_results.csv','r+') as csvFile:    
         csvFileR = csvFile.readlines()
         resultList = []
         for i in csvFileR:
@@ -576,7 +549,7 @@ def quizResults(quizName):
 
 # retrieve quiz results for specific user
 def userResults(userID):
-    with open('./1B02-GanHanyong/csv/quiz_results.csv','r+') as csvFile:    
+    with open('./csv/quiz_results.csv','r+') as csvFile:    
         csvFileR = csvFile.readlines()
         #r = 0
         resultList = []
@@ -597,7 +570,7 @@ def userResults(userID):
 ########################## quiz_topics.csv #######################
 
 def chooseTopic():
-    with open('./1B02-GanHanyong/csv/quiz_topics.csv','r+') as csvFile:
+    with open('./csv/quiz_topics.csv','r+') as csvFile:
         csvFileR = csvFile.readlines()
         r = 0
         topicNameList = []
@@ -635,7 +608,7 @@ def chooseTopic():
                 tOrF = True
 
 def checkTopicOne(moduleName):
-    with open('./1B02-GanHanyong/csv/quiz_topics.csv','r+') as csvFile:
+    with open('./csv/quiz_topics.csv','r+') as csvFile:
         csvFileR = csvFile.readlines()
         for i in csvFileR:
             mNames = i.strip('\n')
@@ -651,11 +624,11 @@ def checkTopicOne(moduleName):
 
 # add new quiz modules
 def addNewTopic(moduleName):
-    with open('./1B02-GanHanyong/csv/quiz_topics.csv','r+') as csvFile:
+    with open('./csv/quiz_topics.csv','r+') as csvFile:
         csvFileR = csvFile.readlines()
 
         csvFileR.append(f'\n{moduleName}')
-    with open('./1B02-GanHanyong/csv/quiz_topics.csv','w') as csvFile:
+    with open('./csv/quiz_topics.csv','w') as csvFile:
         for n in csvFileR:
             csvFile.write(n)
 
@@ -664,7 +637,7 @@ def addNewTopic(moduleName):
         
 # delete existing quiz modules
 def delTopic(moduleName):
-    with open('./1B02-GanHanyong/csv/quiz_topics.csv', 'r+') as csvFile:
+    with open('./csv/quiz_topics.csv', 'r+') as csvFile:
         csvFileR = csvFile.readlines()
     
         for i in csvFileR:
@@ -672,7 +645,7 @@ def delTopic(moduleName):
             if moduleName == moduleStriped:
                 csvFileR.remove(i)
         csvFile.close()
-    with open('./1B02-GanHanyong/csv/quiz_topics.csv', 'w') as csvFile:
+    with open('./csv/quiz_topics.csv', 'w') as csvFile:
         for n in csvFileR:
             csvFile.write(n)
 
@@ -681,7 +654,7 @@ def delTopic(moduleName):
 
 
 def editTopicName(moduleName,newModuleName):
-    with open('./1B02-GanHanyong/csv/quiz_topics.csv','r+') as csvFile:
+    with open('./csv/quiz_topics.csv','r+') as csvFile:
         csvFileR = csvFile.readlines()
 
         # strip every line of '\n'
@@ -691,14 +664,14 @@ def editTopicName(moduleName,newModuleName):
             if moduleStriped == moduleName:
                 csvFileR[i] = f"{newModuleName}\n"
         
-    with open('./1B02-GanHanyong/csv/quiz_topics.csv', 'w') as csvFile:
+    with open('./csv/quiz_topics.csv', 'w') as csvFile:
         for n in csvFileR:
             csvFile.write(n)
         csvFile.close()
 
         
 def rmvSpaceTopic():
-    with open('./1B02-GanHanyong/csv/quiz_topics.csv','r+') as csvFile:
+    with open('./csv/quiz_topics.csv','r+') as csvFile:
         csvFileR = csvFile.readlines()
         for i in csvFileR:
             if i == '\n':
@@ -712,7 +685,7 @@ def rmvSpaceTopic():
 ########################## quizes.csv #######################
 
 def checkQuizOne(qName):
-    with open('./1B02-GanHanyong/csv/quizes.csv','r+') as csvFile:
+    with open('./csv/quizes.csv','r+') as csvFile:
         csvFileR = csvFile.readlines()
         for i in csvFileR:
             quizPool = i.split(sep='|')
@@ -726,11 +699,11 @@ def checkQuizOne(qName):
 
 # write New Quiz into quizes.csv
 def regNewQuiz(writeIntoFile):
-    with open('./1B02-GanHanyong/csv/quizes.csv','r+') as csvFile:
+    with open('./csv/quizes.csv','r+') as csvFile:
         csvFileR = csvFile.readlines()
 
         csvFileR.append(f'\n{writeIntoFile}')
-    with open('./1B02-GanHanyong/csv/quizes.csv','w') as csvFile:
+    with open('./csv/quizes.csv','w') as csvFile:
         for n in csvFileR:
             csvFile.write(n)
         csvFile.close()
@@ -738,7 +711,7 @@ def regNewQuiz(writeIntoFile):
 
 
 def deleteQuiz(qName):
-    with open('./1B02-GanHanyong/csv/quizes.csv','r+') as csvFile:    
+    with open('./csv/quizes.csv','r+') as csvFile:    
         csvFileR = csvFile.readlines()
     
         for i in csvFileR:
@@ -746,7 +719,7 @@ def deleteQuiz(qName):
             if qName == qnSplit[2]:
                 csvFileR.remove(i)
         csvFile.close()
-    with open('./1B02-GanHanyong/csv/quizes.csv', 'w') as csvFile:
+    with open('./csv/quizes.csv', 'w') as csvFile:
         for n in csvFileR:
             csvFile.write(n)
 
@@ -755,7 +728,7 @@ def deleteQuiz(qName):
 
 
 def rmSpaceQuiz():
-    with open('./1B02-GanHanyong/csv/quizes.csv','r+') as csvFile:
+    with open('./csv/quizes.csv','r+') as csvFile:
         csvFileR = csvFile.readlines()
         for i in csvFileR:
             if i == '\n':
@@ -767,7 +740,7 @@ def rmSpaceQuiz():
         csvFile.close()
 
 def chooseQuiz():
-    with open('./1B02-GanHanyong/csv/quizes.csv','r+') as csvFile:
+    with open('./csv/quizes.csv','r+') as csvFile:
         csvFileR = csvFile.readlines()
         r = 0
         topicNameList = []
@@ -810,7 +783,7 @@ def chooseQuiz():
                 tOrF = True
 
 def chooseQuizForUser():
-    with open('./1B02-GanHanyong/csv/quizes.csv','r+') as csvFile:
+    with open('./csv/quizes.csv','r+') as csvFile:
         csvFileR = csvFile.readlines()
         r = 0
         topicNameList = []
@@ -851,7 +824,7 @@ def chooseQuizForUser():
 
 # chooseQuizForUser()
 def retrieveQuiz(selectedQuiz):
-    with open('./1B02-GanHanyong/csv/quizes.csv','r+') as csvFile:
+    with open('./csv/quizes.csv','r+') as csvFile:
         csvFileR = csvFile.readlines()
         for i in csvFileR:
             quiz = i.strip('\n')
@@ -867,7 +840,7 @@ def retrieveQuiz(selectedQuiz):
 
                 
 def editQuizzesTopics(moduleToEdit,nameToChg):
-    with open('./1B02-GanHanyong/csv/quizes.csv','r+') as csvFile:
+    with open('./csv/quizes.csv','r+') as csvFile:
         csvFileR = csvFile.readlines()
         newline = ''
         for i in range(len(csvFileR)):
@@ -889,7 +862,7 @@ def editQuizzesTopics(moduleToEdit,nameToChg):
                     newline += f'&&{topicAndNum[0]},{topicAndNum[1]}'
 
             csvFileR[i] = newline
-    with open('./1B02-GanHanyong/csv/quizes.csv','w') as csvFile:
+    with open('./csv/quizes.csv','w') as csvFile:
 
         for n in csvFileR:
             csvFile.write(n)
