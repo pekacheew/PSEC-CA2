@@ -1,30 +1,3 @@
-# StudentID:	p2136798
-# Name:	        Gan Hanyong
-# Class:		DISM/FT/1B/02   
-# Assessment:	CA2
-# 
-# Script name:	admin.py
-# 
-# Purpose:  	Creation, editing, and deletion of users, questions, and quiz settings. To generate results report too.
-#
-# Usage syntax:	F5
-# 
-# Input file:	Specify full path, 'D:\SP School\Y1 SEM2\PSEC\1B02-GanHanyong\csv\userid_pswd.csv'
-#                                  'D:\SP School\Y1 SEM2\PSEC\1B02-GanHanyong\csv\quiz_settings.csv'
-#                                  'D:\SP School\Y1 SEM2\PSEC\1B02-GanHanyong\csv\question_pool.csv'
-#                                  'D:\SP School\Y1 SEM2\PSEC\1B02-GanHanyong\csv\quiz_results.csv'
-#                                  'D:\SP School\Y1 SEM2\PSEC\1B02-GanHanyong\csv\quizes.csv'
-#                                  'D:\SP School\Y1 SEM2\PSEC\1B02-GanHanyong\csv\quiz_topics.csv'
-#
-# Output file:	Specify full path, 'D:\SP School\Y1 SEM2\PSEC\1B02-GanHanyong\csv\userid_pswd.csv'
-#                                  'D:\SP School\Y1 SEM2\PSEC\1B02-GanHanyong\csv\quiz_settings.csv'
-#                                  'D:\SP School\Y1 SEM2\PSEC\1B02-GanHanyong\csv\question_pool.csv'
-#                                  'D:\SP School\Y1 SEM2\PSEC\1B02-GanHanyong\csv\quiz_results.csv'
-#                                  'D:\SP School\Y1 SEM2\PSEC\1B02-GanHanyong\csv\quizes.csv'
-#                                  'D:\SP School\Y1 SEM2\PSEC\1B02-GanHanyong\csv\quiz_topics.csv'
-# 
-# Python ver:	Python 3.9.7
-
 from verifiers import *
 from cipher import *
 from rwaFiles import *
