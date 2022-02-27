@@ -1,6 +1,9 @@
 # PSEC-CA2
-#
-#Singapore Polytechnic Programming in Security module Assignment: Create a quiz application [no GUI] that has admin and user access.
+
+Singapore Polytechnic
+Programming in Security module
+Assignment: Create a socket quiz application that allows user connection to a live server [no GUI] and has admin and user access.
+
 [What all the documents in Documentations mean]
 
 Flowchart: The flowchart of main interfaces of this program. Admin.py and UserServer.py and UserClient.py
